@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:textSize="32sp"/>
 
-    <view class="androidx.appcompat.app.AlertController$RecycleListView"
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tasksRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
