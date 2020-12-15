@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.karachira.todolist_karachiralespagnol.Adapters.ToDoAdapter;
 
+import static android.graphics.Color.RED;
+
 public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
 
     private ToDoAdapter adapter;
@@ -48,7 +50,14 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
                     adapter.notifyItemChanged(viewHolder.getAdapterPosition());
                 }
             });
-            AlertDialog dialog = builder.create();
+            final AlertDialog dialog = builder.create();
+            dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                @Override
+                public void onShow(DialogInterface arg0) {
+                    dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(RED);
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(RED);
+                }
+            });
             dialog.show();
         }
         else {
